@@ -6,9 +6,8 @@
 \usepackage{natbib}
 \usepackage{hyperref}
 
-%opening
 \title{Topic 22: User identification}
-\author{George Markham\\Reg 100130020\\\small \href{mailto:george.markham@uea.ac.uk}{george.markham@uea.ac.uk}} %Make a email hyperlink?
+\author{George Markham\\Reg 100130020\\\small \href{mailto:george.markham@uea.ac.uk}{george.markham@uea.ac.uk}}
 
 \begin{document}
 	
@@ -20,8 +19,6 @@
 	\tableofcontents
 	\newpage
 	\section{Introduction}
-	
-	%Brief statements on the topic you chose to study and why you want to study it. 
 	User identification has become increasingly important with the advent of the internet. Businesses, governments, and the general public are sharing personal, sometimes very sensitive information with trusted parties. The key issue being that word \emph{`trusted'}. How does one prove one's identity to another user or system across the globe? 
 	
 	There are seemingly constantly news stories relating to data theft, last year's Equifax (credit reporting agency) hack could have potentially leaked nearly half the population of the United State's extremely sensitive data \citep{equifax_cnet}. The amount and the sensitivity of the data held on most of the general population of the world can be incredibly damaging if leaked, it can potentially lead to serious fraud that can have very damaging consequences for people. This data theft can be hindered by using secure ways of identifying and authenticating users. Some of those methods will be discussed in section \ref{sect_methods}. If implemented correctly they can potentially mitigate the risk of data theft. Some methods of more secure identification are already being implemented, for example companies such as Google, Facebook and PayPal allow the use of Two Factor authentication, where a user augments the security of their username and password by entering a separate code sent to their device (usually a mobile phone). The code adds extra security as a potential attacker is unable to access a user's account and data unless they also have access to the user's phone. These codes are also resistant to brute force attacks as they are only valid for a short amount of time.
@@ -47,11 +44,12 @@
 	As part of this study the various methods of identification will be compared and contrasted in order to outline their respective strengths and weaknesses. These comparisons will be based on data from past work external to this study.
 	Each technique will be compared to other, similar, techniques and their various merits and weaknesses will be discussed in section \ref{sect_analysis}.
 	
-	\section{Literature review} 
-	
 	\section{Methods}
 	\label{sect_methods}
 	\subsection{Usernames \& Passwords}
+	Usernames and Password authentication is extremely common. It is the primary way most large websites and apps like Facebook, Google, Instagram etc... authenticate their users, however it has been proven to be rather insecure. The main factor making passwords insecure is that the user must select their own and remember it. This leads users to use the same password across multiple systems, select short, and therefore easy to crack, passwords or to select passwords that are personal to them.
+	If a user uses the same password across a number of different systems then if one system is compromised, or stores the password in an insecure manner then the user can potentially have multiple compromised accounts with relatively little effort on the part of malicious parties.
+	
 	\subsection{Biometrics}
 	\label{subsect_biometrics}
 	\subsection{Behavioural Biometrics}
@@ -69,9 +67,7 @@
 	
 	\section{Summary}
 	
-	\nocite{*}
 	\bibliographystyle{agsm}
-	% you should use your own bibtex file to replace the following example_ref bib file.
 	\bibliography{references} 
 	
 \end{document}
