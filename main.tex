@@ -48,12 +48,14 @@
 	\label{sect_methods}
 	\subsection{Usernames \& Passwords}
 	Usernames and Password authentication is extremely common. It is the primary way most large websites and apps like Facebook, Google, Instagram etc... authenticate their users, however it has been proven to be rather insecure. The main factor making passwords insecure is that the user must select their own and remember it. This leads users to use the same password across multiple systems, select short, and therefore easy to crack, passwords or to select passwords that are personal to them.
-	If a user uses the same password across a number of different systems then if one system is compromised, or stores the password in an insecure manner then the user can potentially have multiple compromised accounts with relatively little effort on the part of malicious parties.
-	
+	If a user uses the same password across a number of different systems then if one system is compromised, or stores the password in an insecure manner then the user can potentially have multiple compromised accounts with relatively little effort by malicious parties.
+	If a user uses a short password, e.g 4 alphanumreic characters, then it would take a system capable of calculating 1 million hashes per second about 15 seconds to crack that password \citep{kessler1996passwords}. If the user selects a password with just 4 lowercase letters then it could take approximately 0.5 seconds to crack. This is trivial for a malicious party and the kind of computing power needed to achieve this is easily obtainable.
 	\subsection{Biometrics}
 	\label{subsect_biometrics}
+	The use of biometric forms of identification eliminates many of the issues surrounding traditional username and password identification. For example the issues surrounding users selecting weak passwords is eliminated as one does not control one's biometric features and therefore cannot weaken the security of that system. Biometric forms of identification are also more unique and almost impossible to brute force.
 	\subsection{Behavioural Biometrics}
 	\label{subsect_behavioral_biometrics}
+	Behavioural biometrics pertains to biometric features that are not innate physical attributes. Behavioural biometrics instead focuses on patterns in behaviour, this includes speech and typing habits. Just as physical biometrics can be used to uniquely identify a person through physical attributes so can behavioural biometrics through that person's behaviour. Often this can be done unobtrusively, for example when accessing a website if one could be identified by the keystrokes leading up to that website visit then it eliminates the need for that person to actively prove their identity. By utilising potentially more secure methods of authentication both a user's experience and security can be enhanced.
 	\subsection{Alternative Methods}
 	
 	
