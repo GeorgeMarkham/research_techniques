@@ -53,16 +53,22 @@
 	\subsection{Biometrics}
 	\label{subsect_biometrics}
 	The use of biometric forms of identification eliminates many of the issues surrounding traditional username and password identification. For example the issues surrounding users selecting weak passwords is eliminated as one does not control one's biometric features and therefore cannot weaken the security of that system. Biometric forms of identification are also more unique and almost impossible to brute force.
-	However there are still security issues with biometric forms of identification. One can attempt to trick the sensor for example by creating a fake finger \citep{ambalakat2005security}. It is possible to extract finger print patterns from an image taken by a normal digital camera \citep{ogane2017biometric}, however it is also possible to protect against such an attack, researchers created \emph{BiometricJammer} to "effectively prevent the illegal acquisition of fingerprints by surreptitious photography" \citep{ogane2017biometric}. The jamming pattern proposed, while effective, must be worn by a person. This means that users must take active action in order to protect themselves. Other methods of biometric identification could be used instead to offer more protection to users.
+	However there are still security issues with biometric forms of identification. One can attempt to trick the sensor for example by creating a fake finger or face \citep{ambalakat2005security}. It is possible to extract finger print patterns from an image taken by a normal digital camera \citep{ogane2017biometric}, however it is also possible to protect against such an attack, researchers created \emph{``BiometricJammer''} to "effectively prevent the illegal acquisition of fingerprints by surreptitious photography" \citep{ogane2017biometric}. The jamming pattern proposed, while effective, must be worn by a person. This means that users must take active action in order to protect themselves. Other methods of biometric identification could be used instead to offer more protection to users.
+	Iris recognition provides similar distinctiveness and performance to fingerprint recognition however it may appear more invasive so is unlikely to be accepted as a widespread form of identification. \citep{ambalakat2005security}.
 	\subsection{Behavioural Biometrics}
 	\label{subsect_behavioral_biometrics}
 	Behavioural biometrics pertains to biometric features that are not innate physical attributes. Behavioural biometrics instead focuses on patterns in behaviour, this includes speech and typing habits. Just as physical biometrics can be used to uniquely identify a person through physical attributes so can behavioural biometrics through that person's behaviour. Often this can be done unobtrusively, for example when accessing a website if one could be identified by the keystrokes leading up to that website visit then it eliminates the need for that person to actively prove their identity. By utilising potentially more secure methods of authentication both a user's experience and security can be enhanced.
-	\subsection{Alternative Methods}
 	
+	\subsection{Alternative Methods}
+	Other methods of identification include the use of government verified documents such as drivers licences and passports.
+	Trusona Inc. have developed a system that allows users to securely identify themselves with a physical ID card \citep{eisen2017systems}. Trusona has created authentication systems for the FBI \citep{abagnale_2017} thus highlighting how secure this technology can be. However this technology does have a significant barrier to entry, a user needs to have a physical form of identification in order to identify themselves on the system. In the cases of undocumented immigrants or those who do not have documents such as passports, drivers licences or other forms of physical identification it would not be possible for them to use this system.
 	
 	\section{Analysis and Discussion}
 	\label{sect_analysis}
-	
+	\textbf{Fingerprints} - Fingerprint identification is widely used in smart phones such as Apple's iPhone and Samsung's S series of devices. Given it's wide use it's important that it is doesn't identify two different people as the same person, measured by \emph{false match rate} (FMR) \citep{delac2004survey}. The FMR of fingerprint identification has been observed as $0.2\%$ \citep{delac2004survey}. This is very low however the experiment only appears to include adults between the age of 20-39, excluding many younger and older people who also need access to fingerprint identification technology. It is not sufficient to include a subset of the population when discussing identification technology. Another issue with fingerprint technology is when user's do not have fingerprints. Fingerprint loss can occur through some medical treatments including chemotherapy. When it comes to smartphone authentication and identification technology it may be prudent to explore alternative biometric methods that are more universal with lower barriers to entry like face identification \citep{prabhakar2003biometric}.
+	\\
+	\\
+	\textbf{Face Identification} - As mentioned above face identification is now being introduced into Apple's new iPhone models (X, XS and XS Max). Traditionally face identification has faced technological issues, specifically a lack of accuracy in "environments with cluttered backgrounds and varied lighting conditions" \citep{prabhakar2003biometric}. Apple's \emph{"FaceID"} technology avoids this issue by projecting 30,000 infared dots onto the user's face to produce a sequence of depth maps and infared images \citep{apple_faceid_2017}. To further enhance security and avoid spoofing the sequences are randomised \citep{apple_faceid_2017}.
 	\subsection{Comparison and Contrast}
 	
 	
@@ -74,7 +80,3 @@
 	\bibliography{references} 
 	
 \end{document}
-
-
-
-
