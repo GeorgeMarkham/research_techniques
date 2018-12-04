@@ -5,6 +5,8 @@
 \usepackage[]{graphics}
 \usepackage{natbib}
 \usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{float}
 
 \title{Topic 22: User identification}
 \author{George Markham\\Reg 100130020\\\small \href{mailto:george.markham@uea.ac.uk}{george.markham@uea.ac.uk}}
@@ -30,7 +32,7 @@
 	The main issue with non-biometric based identification methods is that they are easily forge-able. Take the example of a fingerprint, even amongst identical twins you are still able to be identified with no significant decrease in accuracy \citep{han2004study}. Compare that with the assumption that a password can be known to many different people (either legitimately or illegitimately) then it is clear that biometric identification methods could be superior to traditional username and password methods.
 	
 	Biometric methods encompass many different ways to identify a user. Sections
-	\ref{subsect_biometrics} and \ref{subsect_behavioral_biometrics} will cover the various methods of using both biometric (fingerprints, iris scanning etc...) and behavioural biometric techniques (typing habits, mouse habits etc...) to identify a user. The usefulness of these techniques varies with the use case, for example it is illogical to attempt to use typing habits to identify a user on a telephone call, equally it is not always feasible to use voice identification when authenticating a user for a website.
+	\ref{subsect_biometrics} and \ref{subsect_behavioral_biometrics} will cover the various methods of using both biometric (fingerprints, iris scanning etc...) and behavioural biometric techniques (keystroke dynamics, mouse dynamics, speaker recognition etc...) to identify a user. The usefulness of these techniques varies with the use case, for example it is illogical to attempt to use typing habits to identify a user on a telephone call, equally it is not always feasible to use voice identification when authenticating a user for a website.
 	
 	Alternative methods will also be discussed including the possibility of identifying a user with real-world documents such as a passport, drivers license or ID card. These systems are already secured against fraud so may be a great candidate for use with computer systems. 
 	
@@ -69,8 +71,8 @@
 	Other methods of identification include the use of government verified documents such as drivers licences and passports.
 	Trusona Inc. have developed a system that allows users to securely identify themselves with a physical ID card \citep{eisen2017systems}. Trusona has created authentication systems for the FBI \citep{abagnale_2017} thus highlighting how secure this technology can be. However this technology does have a significant barrier to entry, a user needs to have a physical form of identification in order to identify themselves on the system. In the cases of undocumented immigrants or those who do not have documents such as passports, drivers licences or other forms of physical identification it would not be possible for them to use this system.
 	
-	\section{Analysis and Discussion}
-	\label{sect_analysis}
+	\subsection{Specific Methods}
+	\label{subsect:specific_methods}
 	\subsubsection{Fingerprints}
 	\label{subsubsect:fingerprints}
 	Fingerprint identification is widely used in smart phones such as Apple's iPhone and Samsung's S series of devices. Given it's wide use it's important that it is doesn't identify two different people as the same person, measured by \emph{false match rate} (FMR) \citep{delac2004survey}. The FMR of fingerprint identification has been observed as $0.2\%$ \citep{delac2004survey}. This is very low however the experiment only appears to include adults between the age of 20-39, excluding many younger and older people who also need access to fingerprint identification technology. It is not sufficient to include a subset of the population when discussing identification technology. Another issue with fingerprint technology is when user's do not have fingerprints. Fingerprint loss can occur through some medical treatments including chemotherapy. When it comes to smartphone authentication and identification technology it may be prudent to explore alternative biometric methods that are more universal with lower barriers to entry like face identification \citep{prabhakar2003biometric}.
@@ -102,12 +104,42 @@
 	\\
 	\subsubsection{Speaker Recognition}
 	\label{subsubsect:speaker_recognition}
-	Speaker recognition focuses on identifying a user based on their speech. Two main versions of speaker recognition exist: \emph{text-dependent} and \emph{text-independent}. Text-dependent speaker recognition attempts to identify a speaker based on a particular phrase, whereas text-independent speaker recognition attempts to identify the speaker without the need for a specific utterance \citep{microsoft_2006}. In use cases where a user is already speaking, such as telephone banking, speaker recognition is incredibly useful and requires very little change in a user's behaviour. HSBC and other banks such as Citi have been using speaker recognition to identify their users for two years \citep{kollewe_2016}. Text-independent speaker recognition is more resistant to fraud \citep{jain2004introduction} but "requires longer training and testing utterances to achieve good performance" \citep{microsoft_2006}. Given that text-dependent speaker recognition requires a specific phrase be said it could be combined with a password or PIN to enhance it's security.
+	Speaker recognition focuses on identifying a user based on characteristics of their speech. Two main versions of speaker recognition exist: \emph{text-dependent} and \emph{text-independent}. Text-dependent speaker recognition attempts to identify a speaker based on a particular phrase, whereas text-independent speaker recognition attempts to identify the speaker without the need for a specific utterance \citep{microsoft_2006}. In use cases where a user is already speaking, such as telephone banking, speaker recognition is incredibly useful and requires very little change in a user's behaviour. HSBC and other banks such as Citi have been using speaker recognition to identify their users for two years \citep{kollewe_2016}. Text-independent speaker recognition is more resistant to fraud \citep{jain2004introduction} but "requires longer training and testing utterances to achieve good performance" \citep{microsoft_2006}. Given that text-dependent speaker recognition requires a specific phrase be said it could be combined with a password or PIN to enhance it's security.
 	
+	\section{Analysis and Discussion}
+	\label{sect_analysis}
 	\subsection{Comparison and Contrast}
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%% TABLE %%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	Many surveys display a table like Table \ref{tab:common_comparison} to compare and evaluate different biometrics in relation to their performance, security and usability.
+
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|p{3cm}|p{2.5cm}|p{1.5cm}|p{2cm}|p{2cm}|p{2cm}|}
+            \hline
+             \textbf{Biometric} & \textbf{Fingerprint} & \textbf{Face} & \textbf{Hand Geometry} & \textbf{Iris} & \textbf{Voice} \\
+             \hline
+             \textbf{Barriers to universality} & Worn ridges; hand or finger impairment & None & Hand impairment & Visual impairment & Speech impairment \\\hline
+             \textbf{Distinctiveness} & High & Low & Medium & High & Low\\\hline
+             \textbf{Permanence} & High & Medium & Medium & High & Low\\\hline
+             \textbf{Collectibility} & Medium & High & High & Medium & Medium\\\hline
+             \textbf{Performance} & High & Low & Medium & High & Low \\\hline
+             \textbf{Acceptability} & Medium & High & Medium & Low & High \\\hline
+             \textbf{Potential for circumvention} & Low & High & Medium & Low & High \\\hline
+        \end{tabular}
+        \caption{Standard Biometric Comparison Table \citep{prabhakar2003biometric}}
+        \label{tab:common_comparison}
+    \end{table}
+	
+	This table can offer a good insight into which biometrics appear to be most effective, for example Fingerprints appear to be quite unique, very permenant (disregarding the case discussed in \ref{subsect_biometrics}), fairly collectable and difficult to circumvent. This is likely why they are used in many consumer devices to add security. Compared to voice recognition it appears to be far better. Table \ref{tab:common_comparison} voice recognition is not very distinct, liable to change and quite easy to circumvent.
+	The issue with table \ref{tab:common_comparison} is that it only contains a handful of biometrics, the author (\cite{prabhakar2003biometric}) has not evaluated many behavioural biometrics such as handwriting recognition, signature recognition and keystroke dynamics. It is likely that these were not available at the time the paper was written, however.
+	
+	With the behavioural biometrics discussed in \ref{sect_methods} \& \ref{subsect:specific_methods} it is clear that there are distinct use cases for each. With regards to the internet and identifying a person online the use of keystroke dynamics to augment an existing username \& password system would enhance security whilst requiring very little extra effort on the part of the user. In cases where a user is already using their voice to interact with a system (smart speakers, telephone banking etc...) it would again add further security to an existing PIN or pass-phrase based identification system without the user being required to do anything more than enrolment.
+	
+	Whilst behavioural biometrics may not yet be secure and reliable enough to be used as a system's only form of identification they are certainly good candidates for use in multi-factor identification/authentication systems.
+	
+	With the constant threat of security breaches it is imperative implementations of alternative identification methods be explored and considered. Username \& password based authentication is proven to be greatly flawed and should not be solely relied on.
 	
 	\subsection{Evaluation}
 	
