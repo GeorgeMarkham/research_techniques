@@ -38,17 +38,19 @@
 	Biometric methods encompass many different ways to identify a user. Sections
 	\ref{subsect_biometrics} and \ref{subsect_behavioral_biometrics} will cover the various methods of using both biometric (fingerprints, iris scanning etc...) and behavioural biometric techniques (keystroke dynamics, mouse dynamics, speaker recognition etc...) to identify a user. The usefulness of these techniques varies with the use case, for example it is illogical to attempt to use typing habits to identify a user on a telephone call, equally it is not always feasible to use voice identification when authenticating a user for a website.
 	
-	Alternative methods will also be discussed including the possibility of identifying a user with real-world documents such as a passport, drivers license or ID card. These systems are already secured against fraud so may be a great candidate for use with computer systems. 
+	Alternative methods will also be discussed including the possibility of identifying a user with real-world documents such as a passport, drivers license or ID card. These systems are already secured against fraud so they may prove to be a great candidate for use with computer systems.
 	
-	In addition to the methods mentioned above there are also public-key encryption algorithms already developed and in use that, although developed for sending encrypted messages, can also potentially be considered forms of identification.
+	In addition to the methods mentioned above there are also public-key encryption algorithms already developed and in use that, although developed for sending encrypted messages, could also be considered forms of identification.
 	
 	\subsection{Aim and Objectives} 
 	This study aims to provide evidence that biometric, behavioural biometric and alternative forms of user identification are superior to a traditional username and password based method.
 	To do this the various methods of identification outlined in section \ref{sect_methods} will be evaluated using evidence gathered from previous studies to determine their usefulness compared with each other and username and password identification.
+	Biometric and behavioural biometric forms of identification will be compared to highlight the merits of each.
 	
 	\subsection{Study Plan}
-	As part of this study the various methods of identification will be compared and contrasted in order to outline their respective strengths and weaknesses. These comparisons will be based on data from past work external to this study.
-	Each technique will be compared to other, similar, techniques and their various merits and weaknesses will be discussed in section \ref{sect_analysis}.
+	As part of this report the various methods of identification will be compared and contrasted in order to outline their respective strengths and weaknesses. These comparisons will be based on data from past work external to this study.
+	Each technique will be compared to other, similar, techniques and their various merits and weaknesses will be discussed in \ref{sect_analysis} and \ref{sect_methods}.
+	Examples of both biometric and behavioural biometric methods will be discussed in order to give a broad overview of the current state of both fields.
 	
 	\section{Methods}
 	\label{sect_methods}
@@ -63,7 +65,7 @@
 	Iris recognition provides similar distinctiveness and performance to fingerprint recognition however it may appear more invasive so is unlikely to be accepted as a widespread form of identification. \citep{ambalakat2005security}.
 	\subsection{Behavioural Biometrics}
 	\label{subsect_behavioral_biometrics}
-	Behavioural biometrics pertains to biometric features that are not innate physical attributes. Behavioural biometrics instead focuses on patterns in behaviour, this includes speech and typing habits. Just as physical biometrics can be used to uniquely identify a person through physical attributes so can behavioural biometrics through that person's behaviour. Often this can be done unobtrusively, for example when accessing a website if one could be identified by the keystrokes leading up to that website visit then it eliminates the need for that person to actively prove their identity. By utilising potentially more secure methods of authentication both a user's experience and security can be enhanced. There are a number of different behavioural biometrics to be considered and many of these will be discussed in section \ref{sect_analysis}.
+	Behavioural biometrics pertains to biometric features that are not physical attributes rather patterns in behaviour including speech and typing habits. Just as biometrics can be used to uniquely identify a person through physical attributes so can behavioural biometrics through that person's behaviour. Often this can be done unobtrusively, for example when accessing a website if one could be identified by the keystrokes leading up to that website visit then it eliminates the need for that person to actively prove their identity. By utilising potentially more secure methods of authentication both a user's experience and security can be enhanced. There are a number of different behavioural biometrics to be considered and many of these will be discussed in section \ref{sect_analysis}.
 	
 	\subsection{Process for Identifying or Verifying a User}
 	
@@ -173,15 +175,22 @@
 	
 	Whilst behavioural biometrics may not yet be secure and reliable enough to be used as a system's only form of identification they are certainly good candidates for use in multi-factor identification/authentication systems.
 	
-	With the constant threat of security breaches it is imperative implementations of alternative identification methods be explored and considered. Username \& password based authentication is proven to be greatly flawed and should not be solely relied on.
-	
 	\subsection{Evaluation}
+	\subsubsection{Comparison of Biometrics and Behavioural Biometrics}
+	\label{subsubsect:biometric_behavioural_comparison}
+	To compare biometric and behavioural biometric forms of identification and verification one should take into account not only the security but the impact on the user. With regards to the ethical implications of data collection it may impact users greatly if biometric features were accessed by a malicious third party. With reagards to the use of systems.
+	
+	Both the biometric and behavioural biometric fields contain more and less secure methods, however behavioural biometric systems tend to be less obtrusive with how they collect data \citep{yampolskiy2008behavioural}. While behavioural biometrics do not necessarily provide enough accuracy for identification, for verification purposes they appear to work well \citep{yampolskiy2008behavioural}, and certainly would be well suited to multi-factor authentication systems.
+	
 	\section{Summary}
 	The use of biometrics and behavioural biometrics for user identification is already becoming widely used in modern technology. Services like Apple's TouchID and FaceID help popularise biometric forms of identification and help keep user's data more secure that if they were simply authenticated with usernames and passwords or a PIN. Behavioural biometric identification methods such as handwriting recognition (\ref{subsubsect:handwriting_recognition}), signature recognition (\ref{subsubsect:signature_recognition}), keystroke dynamics (\ref{subsubsect:keystroke_dynamics}) and speaker recognition (\ref{subsubsect:speaker_recognition}) can all be used to enhance the security of existing systems without requiring much more effort on the part of the user. This is important as user's are likely to reject new technology that overcomplicates a system they already deem to be secure enough.
 	
 	It is clear that usernames \& passwords are not secure enough when it comes to securing user's sensitive data. Failings in the username \& password system have been consistently highlighted through a number of high-profile data breaches and alternatives must be considered.
 	
 	While biometric identification methods may have issues of their own, it can be proven that they are more secure than usernames \& passwords and that they remove many of the issues that username \& password identification faces, such as susceptibility to brute-force attacks or bad decisions made by users.
+	
+	With the constant threat of security breaches it is imperative implementations of alternative identification methods be explored and considered. Username \& password based authentication is proven to be greatly flawed and should not be solely relied on.
+	
 	\bibliographystyle{agsm}
 	\bibliography{references} 
 	
