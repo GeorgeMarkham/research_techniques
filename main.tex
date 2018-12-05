@@ -2,11 +2,15 @@
 
 
 \usepackage[]{fullpage}
-\usepackage[]{graphics}
+\usepackage{graphicx}
+
 \usepackage{natbib}
 \usepackage{hyperref}
 \usepackage{tabularx}
 \usepackage{float}
+
+% Set graphics path
+\graphicspath{ {./Images/} }
 
 \title{Topic 22: User identification}
 \author{George Markham\\Reg 100130020\\\small \href{mailto:george.markham@uea.ac.uk}{george.markham@uea.ac.uk}}
@@ -61,13 +65,32 @@
 	\label{subsect_behavioral_biometrics}
 	Behavioural biometrics pertains to biometric features that are not innate physical attributes. Behavioural biometrics instead focuses on patterns in behaviour, this includes speech and typing habits. Just as physical biometrics can be used to uniquely identify a person through physical attributes so can behavioural biometrics through that person's behaviour. Often this can be done unobtrusively, for example when accessing a website if one could be identified by the keystrokes leading up to that website visit then it eliminates the need for that person to actively prove their identity. By utilising potentially more secure methods of authentication both a user's experience and security can be enhanced. There are a number of different behavioural biometrics to be considered and many of these will be discussed in section \ref{sect_analysis}.
 	
-	The standard process for identifying a user based on behavioural biometrics is much the same as the one used for normal biometrics. It relies on feature extraction, a database of templates, and a way of matching features to a particular user.
+	\subsection{Process for Identifying or Verifying a User}
 	
-	\begin{figure}
+	The standard process for identifying a user based on behavioural biometrics is much the same as the one used for normal biometrics. It relies on feature extraction, a database of templates, and a way of matching features to a particular user. For enrolment of a user the biometric is read by a sensor, checked for it's quality and then passed to a feature extractor \citep{jain2004introduction}. These features can then be stored in a database for identification and verification purposes (figure \ref{fig:flowchat:enrolment}). Verification and identification follow much the same process, however remove the quality checker and instead move straight into feature extraction. For verification the user's template is found in the database and then a matching process attempts to match that template with the new extracted features. If the match is successful then it can be assumed that the user is who they say they are. To identify a user out of a number of possible users the biometric system will select a number of templates and try to verify a user againstt them until it finds a match, if it doesn't find a match then it is assumed the user is not known to the system \citep{jain2004introduction}.
+	
+	\begin{figure}[H]
 	    \centering
-	    \includegraphics{}
-	    \caption{Caption}
-	    \label{fig:my_label}
+	   % Make graphic fit page using \textwidth
+	    \includegraphics[width=\textwidth]{biometric_flowcharts-Enrolment.png}
+	    \caption{Flowchart Showing User Enrolment In A Biometric System \citep{jain2004introduction}}
+	    \label{fig:flowchat:enrolment}
+	\end{figure}
+	
+		\begin{figure}[H]
+	    \centering
+	   % Make graphic fit page using \textwidth
+	    \includegraphics[width=\textwidth]{biometric_flowcharts-Verification.png}
+	    \caption{Flowchart Showing User Verification In A Biometric System \citep{jain2004introduction}}
+	    \label{fig:flowchat:verification}
+	\end{figure}
+	
+		\begin{figure}[H]
+	    \centering
+	   % Make graphic fit page using \textwidth
+	    \includegraphics[width=\textwidth]{biometric_flowcharts-Identification.png}
+	    \caption{Flowchart Showing User Identification In A Biometric System \citep{jain2004introduction}}
+	    \label{fig:flowchat:identification}
 	\end{figure}
 	
 	\subsection{Alternative Methods}
