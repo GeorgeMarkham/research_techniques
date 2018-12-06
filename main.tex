@@ -12,46 +12,67 @@
 % Set graphics path
 \graphicspath{ {./Images/} }
 
+% Headers and footers https://en.wikibooks.org/wiki/LaTeX/Customizing_Page_Headers_and_Footers
+\usepackage{fancyhdr}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\lhead{CMP-7030Y - Research Techniques}
+\rhead{}
+\fancyfoot[R]{\thepage}
+\fancyfoot[L]{100130020 George Markham}
+
+
 \title{Topic 22: User identification}
-\author{George Markham\\Reg 100130020\\\small \href{mailto:george.markham@uea.ac.uk}{george.markham@uea.ac.uk}}
+\author{George Markham\\Reg 100130020\\\small
+% george.markham@uea.ac.uk}
+\href{mailto:george.markham@uea.ac.uk}{george.markham@uea.ac.uk}}
 
 \begin{document}
-	
 	\maketitle
 	
+% 	Make special footer just for title page, without header https://en.wikibooks.org/wiki/LaTeX/Customizing_Page_Headers_and_Footers
+	\fancypagestyle{plain}{\fancyhf{}\fancyfoot[R]{\thepage}}
+    
 	\begin{abstract}
-	Due to the increasing amount of sensitive data people entrust to online services it is important that this data is kept secure and only accessible by authorised parties. Usernames \& passwords consistently fail as verification and identification methods therefore alternatives must be considered. This report discusses both biometric and behavioural biometric methods of verification and identification. The methods by which researchers determine their performance is also investigated. This report finds that both are good candidates for replacing usernames \& passwords and, while biometric identification is likely better in most cases than behavioural biometric identification, for verification tasks behavioural biometrics are both less obtrusive and can work as well as their biometric counterparts.
+	Due to the increasing amount of sensitive data people entrust to online services it is important that this data is kept secure and only accessible by authorised parties. Usernames \& passwords consistently fail as verification and identification methods therefore alternatives must be considered. This report discusses both biometric and behavioural biometric methods of verification and identification. The methods by which researchers determine their performance is also investigated. This report finds that both biometrics and behavioural biometrics are good candidates for replacing or augmenting username \& password systems and, while biometric identification is likely better in most cases than behavioural biometric identification, for verification tasks behavioural biometrics are both less obtrusive and can work as well as their biometric counterparts.
 	\end{abstract}
 	
 	\tableofcontents
-	\newpage
+	
+    % 	Apply headers
+	\pagestyle{fancy}
+    \fancypagestyle{plain}{\pagestyle{fancy}}
+    \setlength{\headsep}{1cm}
+    
 	\section{Introduction}
 	User identification has become increasingly important with the advent of the internet. Businesses, governments, and the general public are sharing personal, sometimes very sensitive information with trusted parties. The key issue being that word \emph{`trusted'}. How does one prove one's identity to another user or system across the globe? 
 	
-	There are seemingly constantly news stories relating to data theft, last year's Equifax (credit reporting agency) hack could have potentially leaked nearly half the population of the United State's extremely sensitive data \citep{equifax_cnet}. The amount and the sensitivity of the data held on most of the general population of the world can be incredibly damaging if leaked, it can potentially lead to serious fraud that can have very damaging consequences for people. This data theft can be hindered by using secure ways of identifying and authenticating users. Some of those methods will be discussed in section \ref{sect_methods}. If implemented correctly they can potentially mitigate the risk of data theft. Some methods of more secure identification are already being implemented, for example companies such as Google, Facebook and PayPal allow the use of Two Factor authentication, where a user augments the security of their username and password by entering a separate code sent to their device (usually a mobile phone). The code adds extra security as a potential attacker is unable to access a user's account and data unless they also have access to the user's phone. These codes are also resistant to brute force attacks as they are only valid for a short amount of time.
+	There are seemingly constantly news stories relating to data theft, last year's Equifax (credit reporting agency) hack could have potentially leaked nearly half the population of the United States (approximately 162,229,732 \citep{worldometers_2014}) extremely sensitive data \citep{equifax_cnet}. The amount and the sensitivity of the data held on most of the general population of the world can be incredibly damaging if leaked, it can potentially lead to serious fraud. The theft of data can be hindered by using secure ways of identifying and authenticating users. Some of those methods will be discussed in section \ref{sect_methods}. 
 	
-	For many years we have relied on passwords to authenticate and identify ourselves but passwords are consistently proven to be insecure and unreliable forms of identification. There are, however, alternatives to the username and password method. Smartphones are including biometric identification methods such as using fingerprints sensors and facial analysis. Other methods for identification can also be considered, for example typing habits, mouse use and speaker recognition can all potentially be used to uniquely identify a person.
+	Some methods of more secure identification are already being implemented, for example companies such as Google, Facebook and PayPal allow the use of Two Factor authentication, where a user augments the security of their username \& password by entering a separate code sent to their device (usually a mobile phone). The code adds extra security as a potential attacker is unable to access a user's data unless they also have access to a user's physical device. These codes are also resistant to brute force attacks as they are only valid for a short amount of time.
+	
+	For many years people have relied on passwords to authenticate and identify ourselves but passwords are consistently proven to be insecure and unreliable forms of identification. There are, however, alternatives to the username \& password method. Smartphones are including biometric identification methods such as using fingerprints and face identification (\ref{subsubsect:fingerprints} and \ref{subsubsect:face_identification}). Other methods for identification can also be considered, for example behavioural biometrics such as keystroke dynamics and speaker recognition can all potentially be used to uniquely identify a person.
 	
 	
 	\subsection{Background and Key Issues}
-	The main issue with non-biometric based identification methods is that they are easily forge-able. Take the example of a fingerprint, even amongst identical twins you are still able to be identified with no significant decrease in accuracy \citep{han2004study}. Compare that with the assumption that a password can be known to many different people (either legitimately or illegitimately) then it is clear that biometric identification methods could be superior to traditional username and password methods.
+	The main issue with non-biometric based identification methods is that they are easily forge-able. Take the example of a fingerprint, even amongst identical twins you are still able to be identified with no significant decrease in accuracy \citep{han2004study}. Compare that with the assumption that a password can be known to many different people (either legitimately or illegitimately) then it is clear that biometric identification methods could be superior to traditional username \& password methods.
 	
 	Biometric methods encompass many different ways to identify a user. Sections
-	\ref{subsect_biometrics} and \ref{subsect_behavioral_biometrics} will cover the various methods of using both biometric (fingerprints, iris scanning etc...) and behavioural biometric techniques (keystroke dynamics, mouse dynamics, speaker recognition etc...) to identify a user. The usefulness of these techniques varies with the use case, for example it is illogical to attempt to use typing habits to identify a user on a telephone call, equally it is not always feasible to use voice identification when authenticating a user for a website.
+	\ref{subsect_biometrics} and \ref{subsect_behavioral_biometrics} will cover the various methods of using both biometric (fingerprints, iris scanning etc...) and behavioural biometric techniques (keystroke dynamics, speaker recognition etc...) to identify a user. The usefulness of these techniques varies with the use case, for example it is illogical to attempt to use typing habits to identify a user on a telephone call, equally it is not always feasible to use voice identification when authenticating a user for a website.
 	
-	Alternative methods will also be discussed including the possibility of identifying a user with real-world documents such as a passport, drivers license or ID card. These systems are already secured against fraud so they may prove to be a great candidate for use with computer systems.
-	
+	Alternative methods will also be discussed including the possibility of identifying a user with real-world documents such as a passport, drivers license or ID card. These systems are already secured against fraud and they may prove to be great candidates for use with computer systems.
+
 	In addition to the methods mentioned above there are also public-key encryption algorithms already developed and in use that, although developed for sending encrypted messages, could also be considered forms of identification.
 	
 	\subsection{Aim and Objectives} 
-	This study aims to provide evidence that biometric, behavioural biometric and alternative forms of user identification are superior to a traditional username and password based method.
-	To do this the various methods of identification outlined in section \ref{sect_methods} will be evaluated using evidence gathered from previous studies to determine their usefulness compared with each other and username and password identification.
-	Biometric and behavioural biometric forms of identification will be compared to highlight the merits of each.
+	This study aims to provide evidence that biometrics, behavioural biometrics and alternative forms of user identification are superior to a traditional username \& password based methods.
+	To do this the various methods of identification outlined in section \ref{sect_methods} will be evaluated using evidence gathered from previous studies to determine their usefulness compared with each other and username \& password identification.
+	In addition biometrics and behavioural biometrics will be compared to highlight the merits and issues of each.
 	
 	\subsection{Study Plan}
-	As part of this report the various methods of identification will be compared and contrasted in order to outline their respective strengths and weaknesses. These comparisons will be based on data from past work external to this study.
-	Each technique will be compared to other, similar, techniques and their various merits and weaknesses will be discussed in \ref{sect_analysis} and \ref{sect_methods}.
-	Examples of both biometric and behavioural biometric methods will be discussed in order to give a broad overview of the current state of both fields.
+	As part of this report various methods of identification will be compared and contrasted in order to outline their respective strengths and weaknesses. These comparisons will be based on data from past work external to this study.
+	In \ref{subsect:specific_methods} a number of biometrics and behavioural biometrics will be discussed with an evaluation of their strengths and weaknesses in \ref{sect_analysis}.
 	
 	\section{Methods}
 	\label{sect_methods}
@@ -61,7 +82,7 @@
 	If a user uses a short password, e.g 4 alphanumreic characters, then it would take a system capable of calculating 1 million hashes per second about 15 seconds to crack that password \citep{kessler1996passwords}. If the user selects a password with just 4 lowercase letters then it could take approximately 0.5 seconds to crack. This is trivial for a malicious party and the kind of computing power needed to achieve this is easily obtainable.
 	\subsection{Biometrics}
 	\label{subsect_biometrics}
-	The use of biometric forms of identification eliminates many of the issues surrounding traditional username and password identification. For example the issues surrounding users selecting weak passwords is eliminated as one does not control one's biometric features and therefore cannot weaken the security of that system. Biometric forms of identification are also more unique and almost impossible to brute force.
+	The use of biometric forms of identification eliminates many of the issues surrounding traditional username \& password identification. For example the issues surrounding users selecting weak passwords is eliminated as one does not control one's biometric features and therefore cannot weaken the security of that system. Biometric forms of identification are also more unique and almost impossible to brute force.
 	However there are still security issues with biometric forms of identification. One can attempt to trick the sensor for example by creating a fake finger or face \citep{ambalakat2005security}. It is possible to extract finger print patterns from an image taken by a normal digital camera \citep{ogane2017biometric}, however it is also possible to protect against such an attack, researchers created \emph{``BiometricJammer''} to "effectively prevent the illegal acquisition of fingerprints by surreptitious photography" \citep{ogane2017biometric}. The jamming pattern proposed, while effective, must be worn by a person. This means that users must take active action in order to protect themselves. Other methods of biometric identification could be used instead to offer more protection to users.
 	Iris recognition provides similar distinctiveness and performance to fingerprint recognition however it may appear more invasive so is unlikely to be accepted as a widespread form of identification. \citep{ambalakat2005security}.
 	\subsection{Behavioural Biometrics}
@@ -126,7 +147,7 @@
 	\\
 	\subsubsection{Keystroke Dynamics}
 	\label{subsubsect:keystroke_dynamics}
-	Given that one of the main inputs to most computer systems is a keyboard (either a software keyboard on a touchscreen or a hardware keyboard) it would be useful if one could be identified through it. Using features extracted from a user's typing, including time-features such as down-down times, down-up times, up-down times and the key code of the key typed by the user \citep{typing_auth2005}. These features in the system proposed in \cite{typing_auth2005} gave false rejection rates of $1.45\%$, false acceptance rates of $1.89\%$ for impostor users and false acceptance rates of $3.66\%$ for impostors that had observed legitimate users typing habit. This was proposed as an augmentation to traditional username and password systems to make them more secure without requiring users to provide any further identification or any further effort.
+	Given that one of the main inputs to most computer systems is a keyboard (either a software keyboard on a touchscreen or a hardware keyboard) it would be useful if one could be identified through it. Using features extracted from a user's typing, including time-features such as down-down times, down-up times, up-down times and the key code of the key typed by the user \citep{typing_auth2005}. These features in the system proposed in \cite{typing_auth2005} gave false rejection rates of $1.45\%$, false acceptance rates of $1.89\%$ for impostor users and false acceptance rates of $3.66\%$ for impostors that had observed legitimate users typing habit. This was proposed as an augmentation to traditional username \& password systems to make them more secure without requiring users to provide any further identification or any further effort.
 	
 	The features required may be difficult to legitimately collect, however. It is possible that software attempting to identify a user based on their typing habits may constitute key-logging which is in breach of many country's laws. It is also likely to suffer from similar issues to signature recognition (discussed above). A person's typing habits are liable to change based on a number of external factors such as fatigue or simply the task one is engaged in. A person's typing will also improve over time as they become more accustomed to typing on a particular keyboard and thus the latency's between key presses that the method above (and other methods such as \cite{shepherd_ibm_keystroke_auth1995}) focused on are liable to change.
 	\\
